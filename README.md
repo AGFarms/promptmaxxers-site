@@ -11,11 +11,13 @@ PromptMaxxers is a paid 1:1 AI coaching + Claude-cert prep cohort business sitti
 | Layer | Tool |
 |---|---|
 | Landing page | Static HTML, no build step |
-| Hosting | Cloudflare Pages |
+| Hosting | **Vercel** (auto-deploys on push to `main`) |
 | Booking | [Cal.com](https://cal.com/promptmaxxers) (free tier) |
 | Payment | Stripe Checkout (one-time + Payment Links) |
 | Notifications | Cloudflare Worker → Telegram bot |
-| Email | Cloudflare Email Routing (`hello@promptmaxxers.com` → Gmail) |
+| Email | ImprovMX free tier (`hello@promptmaxxers.com` → Gmail) |
+
+**Live:** https://promptmaxxers.com (production once DNS resolves) · https://promptmaxxers-site.vercel.app (preview/fallback)
 
 ## Repo layout
 
@@ -39,13 +41,21 @@ PromptMaxxers is a paid 1:1 AI coaching + Claude-cert prep cohort business sitti
 
 ## Deploy
 
-### Landing page (Cloudflare Pages)
+### Landing page (Vercel)
 
-1. Push this repo to `AGFarms/promptmaxxers-site` on GitHub.
-2. In Cloudflare dashboard → **Pages** → **Create project** → **Connect to Git** → pick this repo.
-3. Build settings: framework = **None**, build command = (blank), output directory = `public`.
-4. Deploy. First deploy lands at `<random>.pages.dev`.
-5. **Pages** → project → **Custom domains** → add `promptmaxxers.com` AND `www.promptmaxxers.com`. Pages auto-creates the CNAME records (assuming the zone is in the same Cloudflare account).
+Already deployed at https://promptmaxxers-site.vercel.app. Future deploys are automatic on push to `main`.
+
+To deploy manually from CLI:
+
+```sh
+vercel --prod
+```
+
+Custom domain `promptmaxxers.com` is registered at Vercel and waits for DNS verification:
+
+- Add A record at registrar: `@` → `76.76.21.21`
+- Add CNAME at registrar: `www` → `cname.vercel-dns.com.`
+- Vercel auto-issues SSL within minutes of DNS resolving.
 
 ### Webhook Worker (Cloudflare Workers)
 
