@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /welcome/
+
+Sitemap: https://promptmaxxers.com/sitemap.xml
