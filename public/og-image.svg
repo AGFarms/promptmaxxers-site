@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0d12"/>
+      <stop offset="100%" stop-color="#1a2233"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="22" fill="none" stroke="#232a38" stroke-width="2"/>
+  <text x="110" y="180" font-family="-apple-system, Inter, system-ui, sans-serif" font-weight="800" font-size="58" fill="#e6e9ef" letter-spacing="-1.5">PromptMaxxers</text>
+  <text x="110" y="270" font-family="-apple-system, Inter, system-ui, sans-serif" font-weight="700" font-size="48" fill="#ff9a3c" letter-spacing="-1">Become AI-native.</text>
+  <text x="110" y="332" font-family="-apple-system, Inter, system-ui, sans-serif" font-weight="700" font-size="48" fill="#ff9a3c" letter-spacing="-1">Pass the cert. Land the role.</text>
+  <text x="110" y="420" font-family="-apple-system, Inter, system-ui, sans-serif" font-weight="500" font-size="26" fill="#9aa3b2">Live 1:1 coaching + small cohorts from the founder of Nucleus Brain.</text>
+  <text x="110" y="460" font-family="-apple-system, Inter, system-ui, sans-serif" font-weight="500" font-size="26" fill="#9aa3b2">Independent prep for the Claude Certified Architect cert.</text>
+  <rect x="110" y="500" width="280" height="60" rx="10" fill="#ff9a3c"/>
+  <text x="250" y="540" text-anchor="middle" font-family="-apple-system, Inter, system-ui, sans-serif" font-weight="700" font-size="22" fill="#1a1208">promptmaxxers.com</text>
+  <text x="1090" y="540" text-anchor="end" font-family="-apple-system, Inter, system-ui, sans-serif" font-weight="500" font-size="16" fill="#6f7888">An AGFarms AI Ventures product</text>
+</svg>
