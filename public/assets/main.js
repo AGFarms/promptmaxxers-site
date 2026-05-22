@@ -74,9 +74,58 @@
     });
   }
 
+  // ---- Teacher roster (rendered from /teachers.json) ----
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function teacherCardHtml(t) {
+    var subjects = (t.subjects || []).map(function (s) {
+      return '<li>' + esc(s) + '</li>';
+    }).join('');
+    var avatar = t.avatar
+      ? '<img class="teacher-avatar" src="' + esc(t.avatar) + '" alt="' + esc(t.name) + '" width="72" height="72" loading="lazy" />'
+      : '';
+    var book = t.bookUrl
+      ? '<a class="btn btn-track" href="' + esc(t.bookUrl) + '" target="_blank" rel="noopener">Book a session</a>'
+      : '';
+    var rate = t.rate ? '<p class="teacher-rate">' + esc(t.rate) + '</p>' : '';
+    return '' +
+      '<article class="teacher-card' + (t.featured ? ' teacher-featured' : '') + '">' +
+        '<div class="teacher-head">' + avatar +
+          '<div><h3>' + esc(t.name) + '</h3>' +
+          '<p class="teacher-title">' + esc(t.title || '') + '</p></div>' +
+        '</div>' +
+        '<p class="teacher-bio">' + esc(t.bio || '') + '</p>' +
+        (subjects ? '<ul class="teacher-subjects">' + subjects + '</ul>' : '') +
+        rate + book +
+      '</article>';
+  }
+
+  function renderTeachers() {
+    var grid = document.getElementById('teachers-grid');
+    if (!grid) return;
+    fetch('/teachers.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data || !Array.isArray(data.teachers)) return;
+        var active = data.teachers.filter(function (t) {
+          return (t.status || 'active') === 'active';
+        });
+        // featured first, then as-listed
+        active.sort(function (a, b) { return (b.featured ? 1 : 0) - (a.featured ? 1 : 0); });
+        if (active.length === 0) return;
+        grid.innerHTML = active.map(teacherCardHtml).join('');
+      })
+      .catch(function () { /* keep noscript fallback */ });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     wireStripeCtas();
     wireSmoothScroll();
     wireClickPing();
+    renderTeachers();
   });
 })();

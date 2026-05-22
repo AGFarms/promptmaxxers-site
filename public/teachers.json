@@ -1,0 +1,22 @@
+{
+  "_comment": "PromptMaxxers teacher roster. To ADD a teacher: copy a block, fill the fields, drop an avatar SVG/PNG in /assets/teachers/, commit + push. The site auto-redeploys and the new teacher appears. No code change needed. See TEACHERS.md.",
+  "teachers": [
+    {
+      "slug": "gian",
+      "name": "Gian",
+      "title": "Founder · Claude-native systems",
+      "avatar": "/assets/teachers/gian.svg",
+      "bio": "Builds Nucleus Brain — a Claude-orchestration platform with MCP servers, sub-agents, and production governance — running 16 ventures under AGFarms. Teaches the Claude Certified Architect prep cohort and 1:1 sessions on prompt engineering, AI-engineer interview prep, and AI-native workflows.",
+      "subjects": [
+        "Claude Certified Architect prep",
+        "Prompt engineering",
+        "AI engineer interview prep",
+        "AI-native workflows"
+      ],
+      "rate": "$125–200 / hr",
+      "bookUrl": "https://cal.com/promptmaxxers/coaching",
+      "featured": true,
+      "status": "active"
+    }
+  ]
+}

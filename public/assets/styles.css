@@ -248,6 +248,39 @@ img, svg { max-width: 100%; height: auto; }
 .discovery-row { margin-top: 30px; color: var(--fg-muted); }
 .discovery-row .link { color: var(--accent); }
 
+/* TEACHERS */
+.teachers { padding: 48px 0; border-top: 1px solid var(--border); }
+.teachers h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 8px; }
+.teachers .lede { color: var(--fg-muted); margin: 0 0 28px; font-size: 16px; max-width: 640px; }
+.teachers-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 760px) { .teachers-grid { grid-template-columns: 1fr; } }
+.teacher-card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 22px;
+}
+.teacher-featured { border-color: #2b3858; background: linear-gradient(180deg, #1a2233 0%, var(--bg-elev) 100%); }
+.teacher-head { display: flex; gap: 14px; align-items: center; margin-bottom: 12px; }
+.teacher-avatar { border-radius: 14px; flex: 0 0 auto; }
+.teacher-card h3 { margin: 0; font-size: 19px; }
+.teacher-title { margin: 2px 0 0; color: var(--accent); font-size: 14px; font-weight: 600; }
+.teacher-bio { color: var(--fg-muted); font-size: 15px; margin: 0 0 14px; }
+.teacher-subjects {
+  list-style: none; padding: 0; margin: 0 0 14px;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.teacher-subjects li {
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--fg-muted); font-size: 12.5px;
+  padding: 4px 10px; border-radius: 999px;
+}
+.teacher-rate { color: var(--fg); font-weight: 600; margin: 0 0 12px; font-size: 15px; }
+
 /* ABOUT */
 .about { padding: 56px 0; border-top: 1px solid var(--border); }
 .about h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 18px; }
